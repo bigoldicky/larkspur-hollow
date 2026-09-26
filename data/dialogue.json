@@ -1,0 +1,338 @@
+{
+  "celeste": {
+    "name": "Celeste Quill",
+    "portrait": "🌿",
+    "color": "#7eb8a0",
+    "greeting": "There you are. Try not to look like a detective — the donors can smell suspicion.",
+    "topics": [
+      {
+        "id": "brief",
+        "label": "What exactly happened to the Glass Orchid?",
+        "requires": [],
+        "once": true,
+        "lines": [
+          { "speaker": "celeste", "text": "It stood on the Orchid Wing pedestal at closing. At dawn — gone. No alarm. No broken glass that matches Liora's formula." },
+          { "speaker": "mira", "text": "So either a ghost with excellent taste, or someone who knows this building better than the blueprints." },
+          { "speaker": "celeste", "text": "Talk to the staff. Start with the pedestal. And Mira — Junior or Senior, don't skip the notebook. I taught you better." }
+        ],
+        "sets": ["got_case_brief"],
+        "notebook": "Case: Glass Orchid missing from locked pedestal. No matching shards. Investigate staff + pedestal."
+      },
+      {
+        "id": "liora",
+        "label": "Tell me about Liora Finch",
+        "requires": ["got_case_brief"],
+        "lines": [
+          { "speaker": "celeste", "text": "She bequeathed the sculpture to stay public. No private sale. Some patrons find that… inconvenient." },
+          { "speaker": "mira", "text": "Inconvenient is my favorite kind of motive." }
+        ],
+        "sets": ["knows_bequest"]
+      },
+      {
+        "id": "suspects",
+        "label": "Who had access last night?",
+        "requires": ["got_case_brief"],
+        "lines": [
+          { "speaker": "celeste", "text": "Rowan in the studio. Iris sometimes checks humidity after hours. Theo opens at dawn. Juliette Crane lingered after the donor toast." },
+          { "speaker": "mira", "text": "A tidy little suspect bouquet. How botanical of us." }
+        ],
+        "sets": ["got_suspect_list"],
+        "notebook": "Access: Rowan (studio), Iris (after hours?), Theo (dawn), Juliette (after toast)."
+      },
+      {
+        "id": "progress",
+        "label": "I've found some things…",
+        "requires": ["examined_pedestal"],
+        "lines": [
+          { "speaker": "mira", "text": "Specialty scratch on the lock. Guestbook oddities. I'm collecting puzzle pieces like a raccoon with standards." },
+          { "speaker": "celeste", "text": "Good. When the climate panel unlocks the altered log, come back. I'll share the badge admin fragment." }
+        ],
+        "sets": []
+      },
+      {
+        "id": "badge",
+        "label": "Climate log is open — about that badge fragment?",
+        "requires": ["climate_unlocked"],
+        "once": true,
+        "lines": [
+          { "speaker": "celeste", "text": "I hoped you wouldn't need this. Half of the atrium terminal password — the rest is the midnight ping you already saw." },
+          { "speaker": "mira", "text": "You're trusting me with admin toys. Flattering. Mildly terrifying." },
+          { "speaker": "celeste", "text": "Sort the badge timeline in the atrium office. And Mira — clear people before you condemn them." }
+        ],
+        "sets": ["has_badge_fragment"],
+        "giveItem": "badge_fragment",
+        "notebook": "Celeste gave badge admin fragment. Sort the atrium badge log timeline."
+      },
+      {
+        "id": "orchid_back",
+        "label": "I recovered the Glass Orchid",
+        "requires": ["orchid_recovered"],
+        "once": true,
+        "lines": [
+          { "speaker": "mira", "text": "Hollow kiln brick. Intact. Your orphaned centerpiece misses its pedestal." },
+          { "speaker": "celeste", "text": "Oh, Mira. Pin the proof on your board, then speak to Rowan. Justice — not spectacle." }
+        ],
+        "sets": ["told_celeste_recovered"]
+      },
+      {
+        "id": "ending",
+        "label": "Case closed — how are you holding up?",
+        "requires": ["ending_reached"],
+        "lines": [
+          { "speaker": "celeste", "text": "The gala contracts get rewritten. Juliette's private-sale pressure stops here. Rowan will make restitution — and teach apprentices about trust." },
+          { "speaker": "mira", "text": "Liora's glass stays public. I'll take that as a win." },
+          { "speaker": "celeste", "text": "You're always welcome in the Hollow. Suitcase optional." }
+        ],
+        "sets": ["celeste_ending_beat"]
+      }
+    ]
+  },
+  "iris": {
+    "name": "Dr. Iris Pembroke",
+    "portrait": "🌺",
+    "color": "#d4a574",
+    "greeting": "Mind the specimens. Some of them are older than our patience.",
+    "topics": [
+      {
+        "id": "smalltalk",
+        "label": "Beautiful archive",
+        "requires": [],
+        "lines": [
+          { "speaker": "iris", "text": "Beauty is just water, pressure, and time. Rather like secrets." },
+          { "speaker": "mira", "text": "I'll try not to press anyone flat between blotters." }
+        ],
+        "sets": ["iris_smalltalk"]
+      },
+      {
+        "id": "after_hours",
+        "label": "You signed in at 23:40 last night",
+        "requires": ["saw_guestbook"],
+        "lines": [
+          { "speaker": "iris", "text": "Ah. The guestbook. Yes — blight sampling on the living Cattleya. Tissue swabs. Not… sculpture acquisition." },
+          { "speaker": "mira", "text": "You understand how 'after midnight in the crime wing' looks." },
+          { "speaker": "iris", "text": "I do. Check my lab notes if you must. And the humidity sheet on my desk — the panel's been temperamental." }
+        ],
+        "sets": ["iris_cleared_partial", "iris_mentioned_sheet"],
+        "notebook": "Iris claims after-hours visit was living-tissue blight sampling. Check humidity sheet."
+      },
+      {
+        "id": "glass",
+        "label": "Could the orchid have been smashed?",
+        "requires": ["got_case_brief"],
+        "lines": [
+          { "speaker": "iris", "text": "Liora's batch has a refractive signature. The sweepings Celeste showed me don't match. Someone wants us to think it shattered." },
+          { "speaker": "mira", "text": "Red herring, botanical edition." }
+        ],
+        "sets": ["knows_fake_shards"]
+      },
+      {
+        "id": "latin_help",
+        "label": "Help with the Latin bench tags?",
+        "requires": ["iris_smalltalk"],
+        "lines": [
+          { "speaker": "iris", "text": "Bench 3 is Cattleya labiata — showy, fragrant, and frequently mislabeled by enthusiastic volunteers." },
+          { "speaker": "mira", "text": "Educational side quest acquired. Thanks." }
+        ],
+        "sets": ["iris_latin_hint"]
+      }
+    ]
+  },
+  "rowan": {
+    "name": "Rowan Vale",
+    "portrait": "🔥",
+    "color": "#f0a060",
+    "greeting": "If you're here to accuse the artist, take a number. The kiln's hotter than the gossip.",
+    "topics": [
+      {
+        "id": "tools",
+        "label": "What tool leaves a crescent scratch?",
+        "requires": ["examined_pedestal"],
+        "lines": [
+          { "speaker": "rowan", "text": "Tungsten crescent pick. Delicate. Expensive. I keep one for latch work on display cases — when I'm authorized." },
+          { "speaker": "mira", "text": "And when you're not authorized?" },
+          { "speaker": "rowan", "text": "Then I use my charm. Which, you'll notice, is also expensive." }
+        ],
+        "sets": ["knows_tungsten", "proof_tungsten"],
+        "notebook": "Rowan confirms tungsten crescent picks leave shallow scars — and that he owns one."
+      },
+      {
+        "id": "dust",
+        "label": "There's glass dust on your boots",
+        "requires": ["got_case_brief"],
+        "lines": [
+          { "speaker": "rowan", "text": "I work in a glass studio. If my boots were clean, you'd accuse me of never working." },
+          { "speaker": "mira", "text": "Touché. Annoyingly valid." }
+        ],
+        "sets": ["rowan_dust_excuse"]
+      },
+      {
+        "id": "nervous",
+        "label": "The kiln residue trail leads here",
+        "requires": ["uv_revealed"],
+        "lines": [
+          { "speaker": "rowan", "text": "Residue? Look — Theo has debts. People do desperate things. Maybe check the shed before you UV my integrity." },
+          { "speaker": "mira", "text": "Interesting pivot. I'll check everyone. Including pivots." }
+        ],
+        "sets": ["rowan_blamed_theo"],
+        "notebook": "Rowan tried to steer me toward Theo after the UV trail. Nervous tell."
+      },
+      {
+        "id": "liora_legacy",
+        "label": "How do you feel about Liora's bequest?",
+        "requires": ["knows_bequest"],
+        "lines": [
+          { "speaker": "rowan", "text": "Art should be seen. Not auctioned into a penthouse that never waters its plants." },
+          { "speaker": "mira", "text": "We agree. Which is why I'm curious who disagrees loudly." }
+        ],
+        "sets": ["rowan_bequest_opinion"]
+      },
+      {
+        "id": "accuse",
+        "label": "I have proof. You took the orchid.",
+        "requires": ["accusation_ready"],
+        "once": true,
+        "lines": [
+          { "speaker": "mira", "text": "Tungsten scratch. Midnight badge. Hollow kiln brick with the orchid still inside. You didn't smash it — you 'insured' it." },
+          { "speaker": "rowan", "text": "…Juliette was going to force a private sale. Break Liora's bequest. I moved it. Temporary. Then you got close and I — panicked. Planted the fragment toward Theo. That part I'm not proud of." },
+          { "speaker": "mira", "text": "Protective theft plus framing. Creative. Still theft. Still a frame." },
+          { "speaker": "rowan", "text": "I'll return it properly. Restitution. Community service. Just… don't let them sell her work into a vault." }
+        ],
+        "sets": ["rowan_confessed", "proof_kiln"],
+        "notebook": "Rowan confesses: protective theft to block Juliette's forced sale; panicked and framed Theo. Orchid recovered; restitution path."
+      }
+    ]
+  },
+  "theo": {
+    "name": "Theo Marsh",
+    "portrait": "🪴",
+    "color": "#8fbc6a",
+    "greeting": "Stay out of the mulch unless you're wearing boots you hate.",
+    "topics": [
+      {
+        "id": "smalltalk",
+        "label": "Rough night for the grounds?",
+        "requires": [],
+        "lines": [
+          { "speaker": "theo", "text": "Every night's rough if you listen to compost. What do you want, Quill?" },
+          { "speaker": "mira", "text": "Answers. Preferably without pity speeches." }
+        ],
+        "sets": ["theo_smalltalk"]
+      },
+      {
+        "id": "pawn",
+        "label": "I found your pawn slip",
+        "requires": ["found_pawn_slip"],
+        "lines": [
+          { "speaker": "theo", "text": "Grandfather's watch. Gold case. My debt — my call. Not your glass flower." },
+          { "speaker": "mira", "text": "I needed to hear you say it. Gambling stigma makes a convenient frame." },
+          { "speaker": "theo", "text": "Whoever pointed you here wanted a neat villain. I oil hinges. I don't steal heirlooms." }
+        ],
+        "sets": ["theo_cleared"],
+        "notebook": "Theo cleared: pawned grandfather's watch for debts — not the orchid. Resents the pity angle."
+      },
+      {
+        "id": "night_tip",
+        "label": "Any doors that only wake at night?",
+        "requires": ["theo_cleared"],
+        "lines": [
+          { "speaker": "theo", "text": "Service door on the west wall squeaks after dark when the humidity drops. Crowbar lives behind it. Don't ask why." },
+          { "speaker": "mira", "text": "I won't. I'll just borrow it heroically." }
+        ],
+        "sets": ["theo_night_tip"],
+        "notebook": "Theo: night service door squeaks; crowbar stashed behind it. Switch to night at the cottage."
+      }
+    ]
+  },
+  "juliette": {
+    "name": "Juliette Crane",
+    "portrait": "💎",
+    "color": "#d4a0e8",
+    "greeting": "Mira Quill. You look like trouble in comfortable shoes.",
+    "topics": [
+      {
+        "id": "charm",
+        "label": "Enjoying the gala prep?",
+        "requires": [],
+        "lines": [
+          { "speaker": "juliette", "text": "Champagne is easier than honesty. You're here about the orchid." },
+          { "speaker": "mira", "text": "Among other expensive subjects." }
+        ],
+        "sets": ["juliette_smalltalk"]
+      },
+      {
+        "id": "bid",
+        "label": "Your $80k private bid is in the ledger",
+        "requires": ["saw_bid_ledger"],
+        "lines": [
+          { "speaker": "juliette", "text": "…Fine. I wanted it. Celeste wouldn't sell. I scheduled a lawyer that night — divorce, not fencing. My alibi was ugly, not criminal." },
+          { "speaker": "mira", "text": "Ugly alibis still clear smash-and-grab theories." },
+          { "speaker": "juliette", "text": "Pressure a bequest? Perhaps. Steal glass? Beneath me." }
+        ],
+        "sets": ["juliette_cleared"],
+        "notebook": "Juliette cleared (partial): $80k bid real; night alibi was divorce lawyer, not fencing. Still pressured Celeste on sale."
+      },
+      {
+        "id": "gift",
+        "label": "Any 'consulting gifts' I should refuse?",
+        "requires": ["juliette_cleared"],
+        "lines": [
+          { "speaker": "juliette", "text": "A retainer. Discreet. You look underpaid." },
+          { "speaker": "mira", "text": "I look ethical. Hard pass — integrity note filed." }
+        ],
+        "sets": ["refused_juliette_gift", "integrity_note"],
+        "notebook": "Refused Juliette's consulting gift. Integrity intact."
+      }
+    ]
+  },
+  "finn": {
+    "name": "Finn Hale",
+    "portrait": "☕",
+    "color": "#c8b06a",
+    "greeting": "Moss & Bean: coffee, canapés, and curated hearsay. First rumor's free.",
+    "topics": [
+      {
+        "id": "rumor",
+        "label": "Got a rumor for a visiting sleuth?",
+        "requires": [],
+        "lines": [
+          { "speaker": "finn", "text": "People say the orchid was smashed. People also say Victorian plumbing is charming. Both are lies with good branding." },
+          { "speaker": "mira", "text": "So follow the studio heat, not the broom closet." }
+        ],
+        "sets": ["finn_rumor"],
+        "notebook": "Finn: smash rumor is branding. Look at the studio, not the sweepings."
+      },
+      {
+        "id": "nudge",
+        "label": "I need a nudge",
+        "requires": ["finn_rumor", "got_case_brief"],
+        "lines": [
+          { "speaker": "finn", "text": "Theo's debts are real; his guilt isn't. Juliette's perfume lingered near the lounge ledger. Rowan talks fastest when he's wrong." },
+          { "speaker": "mira", "text": "You should bill the Conservatory as a consulting detective." }
+        ],
+        "sets": ["finn_nudge"],
+        "notebook": "Finn nudge: clear Theo's pawn, check Juliette's ledger, pressure Rowan's fast talk."
+      },
+      {
+        "id": "sharp",
+        "label": "Sharper nudge?",
+        "requires": ["finn_nudge", "act1_complete"],
+        "lines": [
+          { "speaker": "finn", "text": "Hollow bricks keep secrets. Night doors keep crowbars. Badge logs keep timestamps. You're welcome; the Fog Latte is not free." },
+          { "speaker": "mira", "text": "Put it on Celeste's tab. She invited the chaos." }
+        ],
+        "sets": ["finn_sharp"],
+        "notebook": "Finn sharp: hollow kiln brick + night crowbar + badge timeline = accusation kit."
+      },
+      {
+        "id": "plumbing",
+        "label": "Victorian plumbing monologue?",
+        "requires": [],
+        "lines": [
+          { "speaker": "finn", "text": "The Conservatory pipes complain in G minor. Like donors. Anyway — solve your mystery before the canapés wilt." },
+          { "speaker": "mira", "text": "Inspirational. Truly." }
+        ],
+        "sets": ["finn_plumbing"]
+      }
+    ]
+  }
+}

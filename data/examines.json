@@ -1,0 +1,130 @@
+{
+  "cottage_window": {
+    "text": "Mist over Larkspur Hollow. Somewhere out there, a glass orchid is pretending to be missing jewelry.",
+    "sets": [
+      "looked_out_window"
+    ]
+  },
+  "cottage_desk": {
+    "text": "Celeste's note: 'Keycard trails lead through the badge terminal \u2014 ask me after the climate log.' Phone buzzes with a muffled threat\u2026 later.",
+    "sets": [
+      "read_celeste_note"
+    ],
+    "notebook": "Celeste: check badge terminal after climate log. Don't rush accusations."
+  },
+  "cottage_phone": {
+    "text": "A disguised voice: 'Leave the orchid alone.' Background \u2014 kiln fans, not caf\u00e9 chatter. Studio ambience. Amateur hour.",
+    "sets": [
+      "heard_phone_threat"
+    ],
+    "notebook": "Phone threat used studio kiln ambience \u2014 not the caf\u00e9. Points at someone who knows the annex.",
+    "requires": [
+      "act1_complete"
+    ]
+  },
+  "banner": {
+    "text": "SPRING GALA \u2014 GLASS & BLOOM. The typography is trying very hard to look expensive.",
+    "sets": []
+  },
+  "guestbook": {
+    "text": "Odd: Dr. Pembroke signed in at 23:40 last night \u2014 long after closing. Theo at 06:05. Rowan\u2026 unsigned, but the studio badge log might disagree.",
+    "sets": [
+      "saw_guestbook"
+    ],
+    "notebook": "Iris entered the Orchid Wing after hours (23:40). Ask her why."
+  },
+  "pedestal": {
+    "text": "Empty. The lock plate has a shallow crescent scratch \u2014 too elegant for a crowbar, too wrong for a standard pick. Someone brought specialty hardware.",
+    "sets": [
+      "examined_pedestal"
+    ],
+    "giveItem": "scratch_photo",
+    "notebook": "Pedestal lock shows a crescent scratch. Match it to a tool."
+  },
+  "benches": {
+    "text": "Cattleya, Phragmipedium, a diva of a Vanda. The living orchids are fine. The glass one is the drama.",
+    "sets": [
+      "saw_benches"
+    ]
+  },
+  "humidity_sheet": {
+    "text": "Iris's handwriting: Day 62% / Night 58%. Margin note: 'Panel override PIN = day||night||bench#' \u2014 and bench #3 is highlighted.",
+    "sets": [
+      "has_humidity_notes"
+    ],
+    "giveItem": "humidity_notes",
+    "notebook": "Climate PIN hint: combine day humidity, night humidity, and bench number."
+  },
+  "specimens": {
+    "text": "Pressed Phalaenopsis from 1891. Someone labeled it 'almost as stubborn as Juliette's bid.' Gossip, archivally preserved.",
+    "sets": [
+      "saw_juliette_rumor"
+    ]
+  },
+  "liora_notebook": {
+    "text": "Liora's annealing card tucked in a blotter: soak 480\u00b0C \u2192 ramp 520 \u2192 hold 560. Studio oven keypad loves nostalgia.",
+    "sets": [
+      "has_anneal_recipe"
+    ],
+    "giveItem": "anneal_recipe",
+    "notebook": "Annealing sequence for oven keypad: 480 \u2192 520 \u2192 560."
+  },
+  "workbench": {
+    "text": "Glass dust, graphite, and a receipt for tungsten wire. Rowan is either meticulous or carefully messy.",
+    "sets": [
+      "saw_workbench"
+    ]
+  },
+  "tool_rack": {
+    "text": "Standard picks, shears\u2026 and an empty hook labeled 'W-crescent.' The silhouette matches your pedestal sketch.",
+    "sets": [
+      "saw_empty_tungsten_hook",
+      "knows_tungsten",
+      "proof_tungsten"
+    ],
+    "giveItem": "tungsten_note",
+    "requires": [
+      "examined_pedestal"
+    ],
+    "notebook": "Empty tungsten crescent hook in studio. Scratches match the pedestal."
+  },
+  "tool_rack_locked": {
+    "text": "Tools. Sharp. I should examine the crime scene before I start accusing hardware.",
+    "sets": []
+  },
+  "pawn_slip": {
+    "text": "Hollow Pawn & Loan receipt: grandfather's gold pocket watch. Theo's signature. Not an orchid fencing operation \u2014 unless orchids wear watch chains now.",
+    "sets": [
+      "has_pawn_slip",
+      "found_pawn_slip"
+    ],
+    "giveItem": "pawn_slip",
+    "notebook": "Theo pawned a grandfather's watch \u2014 ask him before assuming orchid guilt."
+  },
+  "shed_shelf": {
+    "text": "Spare trowels, one boot with honest mud, zero glass orchids. Red herrings hate me.",
+    "sets": [
+      "searched_shed"
+    ]
+  },
+  "compost": {
+    "text": "Warm compost. Nothing buried that sings like Liora's glass. Theo's work is messy, not criminal.",
+    "sets": []
+  },
+  "bid_ledger": {
+    "text": "Private bids: Juliette Crane \u2014 $80,000 for The Glass Orchid. Note: 'Celeste will see reason.' Charming.",
+    "sets": [
+      "saw_bid_ledger"
+    ],
+    "giveItem": "bid_copy",
+    "notebook": "Juliette offered $80k privately. Confront her with the ledger."
+  },
+  "champagne": {
+    "text": "Labels face outward for photos. Priorities.",
+    "sets": []
+  },
+  "cafe_menu": {
+    "text": "Today: Fog Latte, Orchid Macaron (almond, not glass), and 'Ask Finn Anything \u2014 first rumor free.'",
+    "sets": []
+  }
+}

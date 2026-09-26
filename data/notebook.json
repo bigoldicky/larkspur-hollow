@@ -1,0 +1,30 @@
+{
+  "starterTasks": {
+    "junior": [
+      { "id": "t1", "text": "Talk to Aunt Celeste about the missing orchid", "doneFlag": "got_case_brief" },
+      { "id": "t2", "text": "Examine the empty pedestal in the Orchid Wing", "doneFlag": "examined_pedestal" },
+      { "id": "t3", "text": "Check the Atrium guestbook for odd hours", "doneFlag": "saw_guestbook" },
+      { "id": "t4", "text": "Ask Dr. Pembroke about after-hours access", "doneFlag": "iris_cleared_partial" },
+      { "id": "t5", "text": "Find UV chalk and the humidity sheet", "doneFlag": "has_humidity_notes" },
+      { "id": "t6", "text": "Unlock the climate panel with the PIN", "doneFlag": "climate_unlocked" },
+      { "id": "t7", "text": "Use UV chalk on the studio kiln", "doneFlag": "uv_revealed" },
+      { "id": "t8", "text": "Match the pedestal scratch to a studio tool", "doneFlag": "knows_tungsten" },
+      { "id": "t9", "text": "Speak to Theo about the pawn slip", "doneFlag": "theo_cleared" },
+      { "id": "t10", "text": "Confront Juliette with the bid ledger", "doneFlag": "juliette_cleared" },
+      { "id": "t11", "text": "Switch to night and check the service door", "doneFlag": "service_opened" },
+      { "id": "t12", "text": "Recover the orchid and build the accusation", "doneFlag": "case_solved" }
+    ],
+    "senior": [
+      { "id": "t1", "text": "Get the case briefing", "doneFlag": "got_case_brief" },
+      { "id": "t2", "text": "Investigate the Orchid Wing crime scene", "doneFlag": "examined_pedestal" },
+      { "id": "t3", "text": "Follow Act I: logs, UV, tungsten", "doneFlag": "act1_complete" },
+      { "id": "t4", "text": "Clear red herrings (Iris, Theo, Juliette)", "doneFlag": "juliette_cleared" },
+      { "id": "t5", "text": "Recover orchid & accuse with proof", "doneFlag": "ending_reached" }
+    ],
+    "master": [
+      { "id": "t1", "text": "Briefing + full Act I chain", "doneFlag": "act1_complete" },
+      { "id": "t2", "text": "Three clears + badge timeline", "doneFlag": "badge_sorted" },
+      { "id": "t3", "text": "Recover orchid, accuse, close case", "doneFlag": "ending_reached" }
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "uv_chalk": {
+    "id": "uv_chalk",
+    "name": "UV Inspection Chalk",
+    "icon": "✎",
+    "description": "Conservatory-issue chalk that fluoresces under the studio lamp. Good for revealing oily residues.",
+    "combinableWith": ["tweezers"]
+  },
+  "tweezers": {
+    "id": "tweezers",
+    "name": "Specimen Tweezers",
+    "icon": "✂",
+    "description": "Fine-point tweezers from the Orchid Wing. Pair with UV chalk to lift residue samples.",
+    "combinableWith": ["uv_chalk"]
+  },
+  "uv_kit": {
+    "id": "uv_kit",
+    "name": "UV Sample Kit",
+    "icon": "✦",
+    "description": "Tweezers dusted with UV chalk — ready to lift kiln-brick residue from the pedestal base.",
+    "combinableWith": []
+  },
+  "humidity_notes": {
+    "id": "humidity_notes",
+    "name": "Humidity Code Notes",
+    "icon": "▤",
+    "description": "Numbers circled on Iris's log: day target, night target, and a 'panel override' scribble.",
+    "combinableWith": []
+  },
+  "scratch_photo": {
+    "id": "scratch_photo",
+    "name": "Pedestal Scratch Sketch",
+    "icon": "◈",
+    "description": "Your hasty sketch of an unusual curved scratch on the lock plate — not a standard pick.",
+    "combinableWith": []
+  },
+  "tungsten_note": {
+    "id": "tungsten_note",
+    "name": "Tungsten Pick Note",
+    "icon": "⚒",
+    "description": "Rowan mentioned tungsten picks leave a shallow crescent scar. Your sketch matches.",
+    "combinableWith": []
+  },
+  "bent_wire": {
+    "id": "bent_wire",
+    "name": "Bent Studio Wire",
+    "icon": "⌒",
+    "description": "A scrap of tungsten wire bent into a crude pick. Just the thing for a stubborn shed padlock.",
+    "combinableWith": []
+  },
+  "pawn_slip": {
+    "id": "pawn_slip",
+    "name": "Pawn Slip",
+    "icon": "🧾",
+    "description": "Hollow Pawn & Loan — 'Grandfather's pocket watch, gold case.' Not an orchid. Theo's name on the line.",
+    "combinableWith": []
+  },
+  "bid_copy": {
+    "id": "bid_copy",
+    "name": "Bid Ledger Copy",
+    "icon": "§",
+    "description": "Juliette Crane — private offer $80,000 for The Glass Orchid. Circled twice in angry pen.",
+    "combinableWith": []
+  },
+  "anneal_recipe": {
+    "id": "anneal_recipe",
+    "name": "Annealing Recipe Card",
+    "icon": "♨",
+    "description": "Liora's margin math: soak 480 → ramp 520 → hold 560. Oven keypad wants that sequence.",
+    "combinableWith": []
+  },
+  "studio_keycard": {
+    "id": "studio_keycard",
+    "name": "Studio Keycard",
+    "icon": "▣",
+    "description": "Released from the oven safe after the annealing sequence. Opens the hollow kiln brick latch.",
+    "combinableWith": []
+  },
+  "crowbar": {
+    "id": "crowbar",
+    "name": "Service Crowbar",
+    "icon": "⚒",
+    "description": "Short crowbar from behind the night service door. Useful leverage on kiln brickwork.",
+    "combinableWith": []
+  },
+  "badge_fragment": {
+    "id": "badge_fragment",
+    "name": "Badge Admin Fragment",
+    "icon": "🔑",
+    "description": "Celeste's half-password for the atrium badge terminal. Pair with the climate log timeline.",
+    "combinableWith": []
+  },
+  "bequest_page": {
+    "id": "bequest_page",
+    "name": "Reassembled Bequest",
+    "icon": "📜",
+    "description": "Liora's bequest: sculpture stays public. Private sale voids the gift. Juliette's pressure play looks uglier now.",
+    "combinableWith": []
+  },
+  "glass_orchid": {
+    "id": "glass_orchid",
+    "name": "The Glass Orchid",
+    "icon": "❀",
+    "description": "Recovered. Cool to the touch, still singing Liora's formula. Evidence and heirloom.",
+    "combinableWith": []
+  },
+  "locker_digits": {
+    "id": "locker_digits",
+    "name": "Locker Digits Note",
+    "icon": "＃",
+    "description": "From the seating chart cipher: JC-TH-RV → useful flavor, optional for Finn's sharper hint.",
+    "combinableWith": []
+  }
+}

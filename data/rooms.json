@@ -1,0 +1,158 @@
+{
+  "cottage": {
+    "id": "cottage",
+    "title": "Celeste's Cottage — Guest Room",
+    "blurbDay": "Rain ticks the glass. Your suitcase is only half unpacked — priorities.",
+    "blurbNight": "The Hollow sleeps under mist. Night mode: service doors and secrets wake up.",
+    "bg": "#2a3344",
+    "bgNight": "#1a1f2e",
+    "accent": "#7eb8a0",
+    "decor": "cottage",
+    "hotspots": [
+      { "id": "window", "label": "Window", "x": 70, "y": 18, "w": 22, "h": 28, "action": "examine", "examineId": "cottage_window" },
+      { "id": "desk", "label": "Desk & Phone", "x": 8, "y": 48, "w": 26, "h": 28, "action": "examine", "examineId": "cottage_desk" },
+      { "id": "bequest", "label": "Torn Bequest", "x": 40, "y": 42, "w": 22, "h": 16, "action": "puzzle", "puzzleId": "bequest_page", "requires": ["knows_bequest"], "requiresNot": ["bequest_reassembled"] },
+      { "id": "evidence", "label": "Evidence Board", "x": 62, "y": 52, "w": 28, "h": 22, "action": "puzzle", "puzzleId": "evidence_board", "requires": ["orchid_recovered"] },
+      { "id": "tod", "label": "Day / Night", "x": 8, "y": 18, "w": 18, "h": 14, "action": "toggle_time", "nav": true },
+      { "id": "to_atrium", "label": "To Conservatory", "x": 28, "y": 82, "w": 22, "h": 12, "action": "goto", "target": "atrium", "nav": true },
+      { "id": "to_cafe", "label": "Moss & Bean Café", "x": 54, "y": 82, "w": 24, "h": 12, "action": "goto", "target": "cafe", "nav": true }
+    ],
+    "npcs": []
+  },
+  "atrium": {
+    "id": "atrium",
+    "title": "Quill Conservatory — Atrium",
+    "blurb": "Ferns climb iron columns. The Spring Gala banners look optimistic. You are not.",
+    "bg": "#1e3d36",
+    "accent": "#c5e063",
+    "decor": "atrium",
+    "hotspots": [
+      { "id": "guestbook", "label": "Guestbook", "x": 55, "y": 48, "w": 18, "h": 16, "action": "examine", "examineId": "guestbook" },
+      { "id": "banner", "label": "Gala Banner", "x": 22, "y": 8, "w": 36, "h": 12, "action": "examine", "examineId": "banner" },
+      { "id": "badge_office", "label": "Badge Log Terminal", "x": 8, "y": 62, "w": 22, "h": 16, "action": "puzzle", "puzzleId": "badge_sort", "requires": ["has_badge_fragment"] },
+      { "id": "to_orchid", "label": "Orchid Wing", "x": 78, "y": 38, "w": 18, "h": 18, "action": "goto", "target": "orchid_wing", "nav": true },
+      { "id": "to_herbarium", "label": "Herbarium", "x": 4, "y": 36, "w": 16, "h": 18, "action": "goto", "target": "herbarium", "nav": true },
+      { "id": "to_studio", "label": "Glass Studio", "x": 40, "y": 6, "w": 20, "h": 11, "action": "goto", "target": "studio", "nav": true },
+      { "id": "to_grounds", "label": "Grounds & Shed", "x": 78, "y": 68, "w": 18, "h": 14, "action": "goto", "target": "grounds", "nav": true },
+      { "id": "to_marquee", "label": "Gala Marquee", "x": 4, "y": 68, "w": 18, "h": 14, "action": "goto", "target": "marquee", "nav": true },
+      { "id": "to_cottage", "label": "Back to Cottage", "x": 36, "y": 84, "w": 28, "h": 11, "action": "goto", "target": "cottage", "nav": true }
+    ],
+    "npcs": ["celeste"]
+  },
+  "orchid_wing": {
+    "id": "orchid_wing",
+    "title": "Orchid Wing",
+    "blurb": "Warm mist. Empty pedestal. A crime scene that smells like vanilla and panic.",
+    "bg": "#243528",
+    "accent": "#e8b4d0",
+    "decor": "orchid",
+    "hotspots": [
+      { "id": "pedestal", "label": "Empty Pedestal", "x": 36, "y": 40, "w": 24, "h": 28, "action": "examine", "examineId": "pedestal" },
+      { "id": "scratch_match", "label": "Scratch Match Board", "x": 36, "y": 22, "w": 24, "h": 12, "action": "puzzle", "puzzleId": "scratch_match", "requires": ["examined_pedestal"], "requiresNot": ["scratch_matched"] },
+      { "id": "climate", "label": "Climate Panel", "x": 6, "y": 28, "w": 16, "h": 26, "action": "puzzle", "puzzleId": "climate_pin" },
+      { "id": "benches", "label": "Orchid Benches", "x": 68, "y": 48, "w": 24, "h": 20, "action": "examine", "examineId": "benches" },
+      { "id": "latin", "label": "Latin Labels", "x": 68, "y": 30, "w": 24, "h": 14, "action": "puzzle", "puzzleId": "latin_labels", "requires": ["iris_smalltalk"] },
+      { "id": "chalk_spot", "label": "Supply Caddy", "x": 72, "y": 12, "w": 18, "h": 14, "action": "take", "itemId": "uv_chalk", "requiresNot": ["has_uv_chalk"] },
+      { "id": "tweezers_spot", "label": "Specimen Tweezers", "x": 6, "y": 62, "w": 18, "h": 12, "action": "take", "itemId": "tweezers", "requiresNot": ["has_tweezers"] },
+      { "id": "to_atrium", "label": "To Atrium", "x": 38, "y": 84, "w": 24, "h": 11, "action": "goto", "target": "atrium", "nav": true }
+    ],
+    "npcs": []
+  },
+  "herbarium": {
+    "id": "herbarium",
+    "title": "Herbarium Archive",
+    "blurb": "Pressed ghosts of flowers. The air is glue, paper, and quiet ambition.",
+    "bg": "#3a3028",
+    "accent": "#d4a574",
+    "decor": "herbarium",
+    "hotspots": [
+      { "id": "humidity_sheet", "label": "Humidity Log Sheet", "x": 58, "y": 38, "w": 24, "h": 26, "action": "examine", "examineId": "humidity_sheet" },
+      { "id": "specimens", "label": "Specimen Drawers", "x": 8, "y": 32, "w": 26, "h": 28, "action": "examine", "examineId": "specimens" },
+      { "id": "liora_nb", "label": "Liora Recipe Notes", "x": 40, "y": 22, "w": 22, "h": 14, "action": "examine", "examineId": "liora_notebook", "requires": ["got_case_brief"] },
+      { "id": "to_atrium", "label": "To Atrium", "x": 38, "y": 84, "w": 24, "h": 11, "action": "goto", "target": "atrium", "nav": true }
+    ],
+    "npcs": ["iris"]
+  },
+  "studio": {
+    "id": "studio",
+    "title": "Glass Studio Annex",
+    "blurb": "Heat ghosts shimmer above the glory hole. Beauty is a burn hazard here.",
+    "bg": "#3d2a2a",
+    "accent": "#f0a060",
+    "decor": "studio",
+    "hotspots": [
+      { "id": "workbench", "label": "Workbench", "x": 16, "y": 50, "w": 28, "h": 22, "action": "examine", "examineId": "workbench" },
+      { "id": "kiln", "label": "Annealing Kiln", "x": 58, "y": 32, "w": 26, "h": 28, "action": "puzzle", "puzzleId": "uv_kiln" },
+      { "id": "oven", "label": "Oven Keypad", "x": 58, "y": 12, "w": 26, "h": 14, "action": "puzzle", "puzzleId": "oven_keypad", "requires": ["has_anneal_recipe"] },
+      { "id": "hollow", "label": "Hollow Kiln Brick", "x": 58, "y": 64, "w": 26, "h": 14, "action": "puzzle", "puzzleId": "hollow_brick", "requires": ["uv_revealed"] },
+      { "id": "tool_rack", "label": "Tool Rack", "x": 6, "y": 18, "w": 18, "h": 26, "action": "examine", "examineId": "tool_rack" },
+      { "id": "formula", "label": "Oxide Formula Panel", "x": 28, "y": 18, "w": 22, "h": 14, "action": "puzzle", "puzzleId": "glass_formula", "requires": ["got_case_brief"] },
+      { "id": "wire_spot", "label": "Bent Wire Scrap", "x": 6, "y": 58, "w": 16, "h": 12, "action": "take", "itemId": "bent_wire", "requires": ["act1_complete"], "requiresNot": ["has_bent_wire"] },
+      { "id": "to_atrium", "label": "To Atrium", "x": 28, "y": 84, "w": 24, "h": 11, "action": "goto", "target": "atrium", "nav": true }
+    ],
+    "npcs": ["rowan"]
+  },
+  "grounds": {
+    "id": "grounds",
+    "title": "Grounds & Potting Shed",
+    "blurbDay": "Mulch, fog, and the squeak of a service hinge Theo swears he oiled.",
+    "blurbNight": "Lantern moths. The service door waits like a guilty conscience.",
+    "bg": "#2a3a28",
+    "bgNight": "#1a2418",
+    "accent": "#8fbc6a",
+    "decor": "grounds",
+    "hotspots": [
+      { "id": "shed_door", "label": "Shed Padlock", "x": 55, "y": 35, "w": 28, "h": 28, "action": "puzzle", "puzzleId": "shed_lock", "requiresNot": ["shed_unlocked"] },
+      { "id": "enter_shed", "label": "Enter Shed", "x": 55, "y": 35, "w": 28, "h": 28, "action": "goto", "target": "shed", "nav": true, "requires": ["shed_unlocked"] },
+      { "id": "service", "label": "Service Door", "x": 10, "y": 40, "w": 24, "h": 26, "action": "puzzle", "puzzleId": "service_door", "requiresTime": "night" },
+      { "id": "compost", "label": "Compost Heap", "x": 10, "y": 72, "w": 22, "h": 14, "action": "examine", "examineId": "compost" },
+      { "id": "to_atrium", "label": "To Atrium", "x": 40, "y": 84, "w": 24, "h": 11, "action": "goto", "target": "atrium", "nav": true }
+    ],
+    "npcs": []
+  },
+  "shed": {
+    "id": "shed",
+    "title": "Potting Shed Interior",
+    "blurb": "Soil bags, spare keys that open nothing useful, and the smell of wet cedar.",
+    "bg": "#3a3228",
+    "accent": "#c4a882",
+    "decor": "shed",
+    "hotspots": [
+      { "id": "pawn", "label": "Pawn Slip", "x": 40, "y": 40, "w": 28, "h": 20, "action": "examine", "examineId": "pawn_slip", "requiresNot": ["has_pawn_slip"] },
+      { "id": "shelf", "label": "Tool Shelf", "x": 8, "y": 30, "w": 24, "h": 28, "action": "examine", "examineId": "shed_shelf" },
+      { "id": "to_grounds", "label": "Back Outside", "x": 38, "y": 84, "w": 24, "h": 11, "action": "goto", "target": "grounds", "nav": true }
+    ],
+    "npcs": ["theo"]
+  },
+  "marquee": {
+    "id": "marquee",
+    "title": "Gala Marquee / Patron Lounge",
+    "blurb": "Champagne ghosts and donor placards. Money polished until it looks like manners.",
+    "bg": "#3a2840",
+    "accent": "#d4a0e8",
+    "decor": "marquee",
+    "hotspots": [
+      { "id": "ledger", "label": "Bid Ledger", "x": 55, "y": 38, "w": 28, "h": 24, "action": "examine", "examineId": "bid_ledger" },
+      { "id": "seating", "label": "Seating Chart", "x": 10, "y": 30, "w": 26, "h": 22, "action": "puzzle", "puzzleId": "seating_cipher" },
+      { "id": "champagne", "label": "Champagne Prep", "x": 10, "y": 60, "w": 22, "h": 14, "action": "examine", "examineId": "champagne" },
+      { "id": "to_atrium", "label": "To Atrium", "x": 38, "y": 84, "w": 24, "h": 11, "action": "goto", "target": "atrium", "nav": true }
+    ],
+    "npcs": ["juliette"]
+  },
+  "cafe": {
+    "id": "cafe",
+    "title": "Moss & Bean Café",
+    "blurbDay": "Steam, cinnamon, and Finn's encyclopedia of local gossip.",
+    "blurbNight": "After-hours lamps. Finn wipes cups and rewrites the town's oral history.",
+    "bg": "#2e3428",
+    "bgNight": "#22281e",
+    "accent": "#c8b06a",
+    "decor": "cafe",
+    "hotspots": [
+      { "id": "menu", "label": "Specials Board", "x": 60, "y": 20, "w": 26, "h": 18, "action": "examine", "examineId": "cafe_menu" },
+      { "id": "crossword", "label": "Rumor Crossword", "x": 12, "y": 40, "w": 28, "h": 24, "action": "puzzle", "puzzleId": "finn_crossword" },
+      { "id": "to_cottage", "label": "Back to Cottage", "x": 38, "y": 84, "w": 24, "h": 11, "action": "goto", "target": "cottage", "nav": true }
+    ],
+    "npcs": ["finn"]
+  }
+}

@@ -1,0 +1,462 @@
+{
+  "scratch_match": {
+    "id": "scratch_match",
+    "name": "Pedestal Scratch Match",
+    "type": "choice",
+    "requires": ["examined_pedestal"],
+    "intro": "Compare your pedestal scratch sketch to tool silhouettes. Which matches the crescent scar?",
+    "tiers": {
+      "junior": {
+        "hint": "Junior: look for the curved crescent — not the straight pick or crowbar.",
+        "options": [
+          { "id": "crowbar", "label": "Crowbar claw" },
+          { "id": "standard", "label": "Standard lock pick" },
+          { "id": "tungsten", "label": "Tungsten crescent pick", "correct": true },
+          { "id": "shear", "label": "Glass shear tip" }
+        ]
+      },
+      "senior": {
+        "hint": "Match curvature and width to specialty latch tools.",
+        "options": [
+          { "id": "crowbar", "label": "Crowbar claw" },
+          { "id": "standard", "label": "Standard lock pick" },
+          { "id": "tungsten", "label": "Tungsten crescent pick", "correct": true },
+          { "id": "shear", "label": "Glass shear tip" },
+          { "id": "wire", "label": "Bent copper wire" }
+        ]
+      }
+    },
+    "onSolve": {
+      "sets": ["scratch_matched", "knows_tungsten"],
+      "notebook": "Scratch match confirmed: tungsten crescent pick — matches studio rack hook.",
+      "monologue": "Specialty hardware. Someone brought their A-game and their ego."
+    }
+  },
+  "climate_pin": {
+    "id": "climate_pin",
+    "name": "Climate Panel Override",
+    "type": "code",
+    "requires": ["has_humidity_notes"],
+    "requiresMsg": "The panel wants a PIN. I need the humidity log numbers first.",
+    "intro": "ORCHID WING — CLIMATE OVERRIDE. Enter PIN.",
+    "tiers": {
+      "junior": {
+        "hint": "Junior tip: Day humidity (62), night (58), bench #3 → try 62583",
+        "answer": "62583",
+        "digits": 5
+      },
+      "senior": {
+        "hint": "Cross-reference day %, night %, and the highlighted bench number on Iris's sheet.",
+        "answer": "62583",
+        "digits": 5
+      },
+      "master": {
+        "hint": "Sheet smudged — day still 62, night looks like 5?, bench mark faint. Trust the blotter copy: 62583.",
+        "answer": "62583",
+        "digits": 5
+      }
+    },
+    "onSolve": {
+      "sets": ["climate_unlocked"],
+      "notebook": "Climate log unlocked: studio badge ping at 00:17 — after Iris, before Theo. Altered humidity spikes look faked.",
+      "monologue": "Logs don't lie, but people who edit logs do. Midnight studio ping… Rowan, your alibi is wilting."
+    }
+  },
+  "uv_kiln": {
+    "id": "uv_kiln",
+    "name": "UV Residue on Kiln",
+    "type": "use_item",
+    "requires": ["has_uv_chalk"],
+    "requiresMsg": "Something oily caught the light. If only I had inspection chalk…",
+    "needsItem": "uv_chalk",
+    "alsoAccepts": ["uv_kit"],
+    "tiers": {
+      "junior": { "sparkle": true, "hint": "Select UV chalk (or UV kit) in inventory, then tap the kiln." },
+      "senior": { "sparkle": false, "hint": "Use the right tool on the kiln to reveal residue." },
+      "master": { "sparkle": false, "hint": "Residue fades — reapply chalk if needed." }
+    },
+    "onSolve": {
+      "sets": ["uv_revealed"],
+      "notebook": "UV chalk reveals kiln-brick dust trail from pedestal path to annealing kiln. Hollow brick?",
+      "monologue": "Hello, clandestine brickwork. Someone ferried the orchid like contraband pastry."
+    }
+  },
+  "uv_pedestal": {
+    "id": "uv_pedestal",
+    "name": "Pedestal Residue Sample",
+    "type": "use_item",
+    "requires": ["has_uv_kit", "examined_pedestal"],
+    "requiresMsg": "Need the UV sample kit (combine tweezers + chalk) on the pedestal base.",
+    "needsItem": "uv_kit",
+    "tiers": {
+      "junior": { "sparkle": true, "hint": "Combine tweezers + UV chalk, then use the kit on the pedestal." },
+      "senior": { "sparkle": false, "hint": "Lift residue from the pedestal base with the UV kit." }
+    },
+    "onSolve": {
+      "sets": ["pedestal_residue"],
+      "notebook": "Pedestal base: kiln-brick micro-dust. Same trail as the annealing kiln.",
+      "monologue": "Residue bridge confirmed. Pedestal to kiln — one continuous guilty path."
+    }
+  },
+  "act1_gate": {
+    "id": "act1_gate",
+    "name": "Act I Synthesis",
+    "type": "auto",
+    "requires": ["climate_unlocked", "uv_revealed", "knows_tungsten", "examined_pedestal"],
+    "onSolve": {
+      "sets": ["act1_complete"],
+      "notebook": "Act I: Pedestal scratch = tungsten; UV trail → kiln; climate log → midnight studio badge. Rowan is center stage — but clear the red herrings before you accuse.",
+      "monologue": "Trail, tool, and timestamp. Act I curtain — now clear Theo, Juliette, and Iris, then pry open that kiln."
+    }
+  },
+  "shed_lock": {
+    "id": "shed_lock",
+    "name": "Shed Padlock",
+    "type": "use_item",
+    "requires": ["has_bent_wire"],
+    "requiresMsg": "Padlock laughs at fingers. Need something thin and bent — studio scrap wire?",
+    "needsItem": "bent_wire",
+    "tiers": {
+      "junior": { "sparkle": true, "hint": "Select Bent Studio Wire, then tap the padlock." },
+      "senior": { "sparkle": false, "hint": "Use a bent wire on the shed lock." }
+    },
+    "onSolve": {
+      "sets": ["shed_unlocked"],
+      "notebook": "Shed unlocked with bent studio wire. Search inside for Theo's paperwork.",
+      "monologue": "Click. Detectives: 1, Hardware-store locks: 0."
+    }
+  },
+  "oven_keypad": {
+    "id": "oven_keypad",
+    "name": "Annealing Oven Keypad",
+    "type": "code",
+    "requires": ["has_anneal_recipe"],
+    "requiresMsg": "Oven wants a three-step temp recipe. Find Liora's notes.",
+    "intro": "ANNEAL SAFE — enter temperature sequence as a 9-digit code (soak+ramp+hold).",
+    "tiers": {
+      "junior": {
+        "hint": "Junior: soak 480, ramp 520, hold 560 → 480520560",
+        "answer": "480520560",
+        "digits": 9
+      },
+      "senior": {
+        "hint": "Sequence from Liora's recipe math: soak → ramp → hold.",
+        "answer": "480520560",
+        "digits": 9
+      },
+      "master": {
+        "hint": "Wrong entry resets. Recipe: 480 / 520 / 560 concatenated.",
+        "answer": "480520560",
+        "digits": 9
+      }
+    },
+    "onSolve": {
+      "sets": ["oven_unlocked", "has_studio_keycard"],
+      "giveItem": "studio_keycard",
+      "notebook": "Oven safe opened. Studio keycard acquired — fits the hollow kiln brick latch.",
+      "monologue": "Keycard slides out like a confession. Time to open that brick."
+    }
+  },
+  "hollow_brick": {
+    "id": "hollow_brick",
+    "name": "Hollow Kiln Brick",
+    "type": "use_item",
+    "requires": ["uv_revealed", "has_studio_keycard"],
+    "requiresMsg": "Hollow brick latch — need the studio keycard (and leverage helps).",
+    "needsItem": "studio_keycard",
+    "alsoNeeds": ["crowbar"],
+    "alsoNeedsMsg": "Keycard clicks, but the brick won't budge. Need a crowbar from the night service door.",
+    "tiers": {
+      "junior": { "sparkle": true, "hint": "Select Studio Keycard (have crowbar in inventory), tap the hollow brick." },
+      "senior": { "sparkle": false, "hint": "Keycard + crowbar on the hollow kiln brick." },
+      "master": { "sparkle": false, "hint": "UV trail should still be fresh; use keycard and crowbar." }
+    },
+    "onSolve": {
+      "sets": ["orchid_recovered", "has_glass_orchid"],
+      "giveItem": "glass_orchid",
+      "notebook": "ORCHID RECOVERED from hollow kiln brick. Rowan's 'protective' stash. Build the accusation on the cottage evidence board.",
+      "monologue": "There you are — cool, intact, furious. Hello, Glass Orchid. Time to pin this properly."
+    }
+  },
+  "badge_sort": {
+    "id": "badge_sort",
+    "name": "Badge Log Timeline",
+    "type": "sort",
+    "requires": ["has_badge_fragment", "climate_unlocked"],
+    "requiresMsg": "Need Celeste's badge fragment and the climate log first.",
+    "intro": "Drag events into chronological order. Distractors included.",
+    "tiers": {
+      "junior": {
+        "hint": "Junior: 4 events — Iris check-in → studio midnight → dawn Theo → morning Celeste.",
+        "events": [
+          { "id": "e1", "label": "23:40 Iris Orchid Wing" },
+          { "id": "e2", "label": "00:17 Studio badge (Rowan)" },
+          { "id": "e3", "label": "06:05 Theo opens grounds" },
+          { "id": "e4", "label": "07:10 Celeste discovers empty pedestal" },
+          { "id": "d1", "label": "22:00 Juliette 'at hotel' (unverified)", "distractor": true }
+        ],
+        "order": ["e1", "e2", "e3", "e4"]
+      },
+      "senior": {
+        "hint": "Sort real badge pings; discard alibi fluff.",
+        "events": [
+          { "id": "e1", "label": "23:40 Iris Orchid Wing" },
+          { "id": "e2", "label": "00:17 Studio badge (Rowan)" },
+          { "id": "e3", "label": "06:05 Theo opens grounds" },
+          { "id": "e4", "label": "07:10 Celeste discovers empty pedestal" },
+          { "id": "d1", "label": "22:00 Juliette hotel claim", "distractor": true },
+          { "id": "d2", "label": "01:00 Phantom café ping", "distractor": true }
+        ],
+        "order": ["e1", "e2", "e3", "e4"]
+      },
+      "master": {
+        "hint": "Infer the missing stamp: studio ping sits between Iris and Theo.",
+        "events": [
+          { "id": "e1", "label": "23:40 Iris Orchid Wing" },
+          { "id": "e2", "label": "00:17 Studio badge (Rowan)" },
+          { "id": "e3", "label": "06:05 Theo opens grounds" },
+          { "id": "e4", "label": "07:10 Celeste discovers empty pedestal" },
+          { "id": "d1", "label": "22:00 Juliette hotel claim", "distractor": true },
+          { "id": "d2", "label": "01:00 Phantom café ping", "distractor": true },
+          { "id": "d3", "label": "05:55 False 'orchid return'", "distractor": true }
+        ],
+        "order": ["e1", "e2", "e3", "e4"]
+      }
+    },
+    "onSolve": {
+      "sets": ["badge_sorted", "proof_badge"],
+      "notebook": "Badge timeline sorted: Rowan's studio ping at 00:17 sits between Iris and Theo — matches climate edit window.",
+      "monologue": "Timeline sings. Midnight studio visit — not a coffee run."
+    }
+  },
+  "bequest_page": {
+    "id": "bequest_page",
+    "name": "Reassemble Torn Bequest",
+    "type": "sort",
+    "requires": ["knows_bequest"],
+    "intro": "Order the watermark strips to reassemble Liora's bequest page.",
+    "tiers": {
+      "junior": {
+        "hint": "Junior: watermark flows left→right: PUBLIC → REMAIN → NO SALE.",
+        "events": [
+          { "id": "s1", "label": "Strip A: '…shall remain PUBLIC'" },
+          { "id": "s2", "label": "Strip B: 'in the Conservatory collection…'" },
+          { "id": "s3", "label": "Strip C: 'Private SALE voids the gift.'" }
+        ],
+        "order": ["s1", "s2", "s3"]
+      },
+      "senior": {
+        "hint": "Follow the watermark river through the strips.",
+        "events": [
+          { "id": "s1", "label": "Strip A: '…shall remain PUBLIC'" },
+          { "id": "s2", "label": "Strip B: 'in the Conservatory collection…'" },
+          { "id": "s3", "label": "Strip C: 'Private SALE voids the gift.'" },
+          { "id": "s4", "label": "Distractor: 'Auction preferred'", "distractor": true }
+        ],
+        "order": ["s1", "s2", "s3"]
+      }
+    },
+    "onSolve": {
+      "sets": ["bequest_reassembled", "has_bequest_page"],
+      "giveItem": "bequest_page",
+      "notebook": "Bequest reassembled: sculpture must stay public; private sale voids gift. Juliette's pressure play is illegal against the bequest.",
+      "monologue": "Liora lawyered from beyond. Private sale? Not on her watch."
+    }
+  },
+  "service_door": {
+    "id": "service_door",
+    "name": "Night Service Door",
+    "type": "examine_gate",
+    "requires": [],
+    "requiresTime": "night",
+    "requiresMsg": "Daytime: bolted and boring. Come back at night.",
+    "tiers": {
+      "junior": { "sparkle": true, "hint": "Switch to Night at the cottage, then check this door." },
+      "senior": { "sparkle": false, "hint": "Night-only access." }
+    },
+    "onSolve": {
+      "sets": ["service_opened", "has_crowbar"],
+      "giveItem": "crowbar",
+      "notebook": "Night service door: crowbar stashed behind the jamb. Theo mentioned the squeak — useful leverage for the kiln brick.",
+      "monologue": "Night delivers: one crowbar, slightly guilty, deeply useful."
+    }
+  },
+  "latin_labels": {
+    "id": "latin_labels",
+    "name": "Orchid Latin Labels",
+    "type": "choice",
+    "requires": ["iris_smalltalk"],
+    "intro": "Match the Latin tag to the correct bench. Iris would be proud (quietly).",
+    "tiers": {
+      "junior": {
+        "hint": "Cattleya is the showy corsage orchid on Bench 3.",
+        "options": [
+          { "id": "wrong1", "label": "Bench 1 — Phragmipedium" },
+          { "id": "right", "label": "Bench 3 — Cattleya labiata", "correct": true },
+          { "id": "wrong2", "label": "Bench 2 — Ficus elastica" }
+        ]
+      },
+      "senior": {
+        "hint": "Bench 3 hosts the cattleya — same number as the climate PIN suffix.",
+        "options": [
+          { "id": "wrong1", "label": "Bench 1 — Phragmipedium" },
+          { "id": "wrong2", "label": "Bench 2 — Vanda coerulea" },
+          { "id": "right", "label": "Bench 3 — Cattleya labiata", "correct": true },
+          { "id": "wrong3", "label": "Bench 4 — Quercus robur" }
+        ]
+      }
+    },
+    "onSolve": {
+      "sets": ["latin_matched"],
+      "notebook": "Latin labels sorted. Educational win; Iris nods approvingly in spirit.",
+      "monologue": "Binomials conquered. Detectives can be nerds. In fact, we must."
+    }
+  },
+  "glass_formula": {
+    "id": "glass_formula",
+    "name": "Glass Formula Quiz",
+    "type": "choice",
+    "requires": ["got_case_brief"],
+    "intro": "Liora's signature glass: which oxide ratio marks her batch (and proves the sweepings are fakes)?",
+    "tiers": {
+      "junior": {
+        "hint": "Junior: high silica, low lead — her 'singing' batch.",
+        "options": [
+          { "id": "a", "label": "High silica / low lead (Liora)", "correct": true },
+          { "id": "b", "label": "High lead crystal (display fake)" },
+          { "id": "c", "label": "Soda-lime bottle glass" }
+        ]
+      },
+      "senior": {
+        "hint": "Match oxide ratios from studio lore.",
+        "options": [
+          { "id": "a", "label": "SiO₂-rich / PbO-light (Liora)", "correct": true },
+          { "id": "b", "label": "PbO-heavy display crystal" },
+          { "id": "c", "label": "Borosilicate lab stock" },
+          { "id": "d", "label": "Obsidian novelty" }
+        ]
+      }
+    },
+    "onSolve": {
+      "sets": ["formula_known", "knows_fake_shards"],
+      "notebook": "Formula quiz: planted shards are high-lead, not Liora's singing silica batch.",
+      "monologue": "Fake shards unmasked. Someone wanted a smash narrative."
+    }
+  },
+  "seating_cipher": {
+    "id": "seating_cipher",
+    "name": "Gala Seating Cipher",
+    "type": "code",
+    "requires": [],
+    "intro": "Initials on the seating chart fold into locker digits. JC=10, TH=20, RV=18 → ?",
+    "tiers": {
+      "junior": {
+        "hint": "Junior: JC(10)+TH(20)+RV(18) = 102018",
+        "answer": "102018",
+        "digits": 6
+      },
+      "senior": {
+        "hint": "Map initials to jersey-style numbers, concatenate in chart order JC-TH-RV.",
+        "answer": "102018",
+        "digits": 6
+      }
+    },
+    "onSolve": {
+      "sets": ["seating_solved", "has_locker_digits"],
+      "giveItem": "locker_digits",
+      "notebook": "Seating cipher: 102018. Optional flavor — Finn may nod harder at your rumors.",
+      "monologue": "Numbers from names. Gala planners are accidental cryptographers."
+    }
+  },
+  "finn_crossword": {
+    "id": "finn_crossword",
+    "name": "Finn's Rumor Crossword",
+    "type": "choice",
+    "requires": [],
+    "intro": "Across: 'Protective thief with kiln access (5 letters)'. Finn grins like a fox.",
+    "tiers": {
+      "junior": {
+        "hint": "Think glass artist, five letters.",
+        "options": [
+          { "id": "rowan", "label": "ROWAN", "correct": true },
+          { "id": "theo", "label": "THEO_" },
+          { "id": "iris", "label": "IRIS_" }
+        ]
+      },
+      "senior": {
+        "hint": "Five-letter studio suspect.",
+        "options": [
+          { "id": "rowan", "label": "ROWAN", "correct": true },
+          { "id": "celeste", "label": "CELST" },
+          { "id": "finn", "label": "FINN_" },
+          { "id": "mira", "label": "MIRA_" }
+        ]
+      }
+    },
+    "onSolve": {
+      "sets": ["finn_crossword_done", "finn_hint_sharp"],
+      "notebook": "Finn's crossword points at Rowan — rumor with teeth.",
+      "monologue": "Even the café crossword is snitching. Noted."
+    }
+  },
+  "evidence_board": {
+    "id": "evidence_board",
+    "name": "Final Evidence Board",
+    "type": "evidence",
+    "requires": ["orchid_recovered"],
+    "requiresMsg": "Recover the orchid first — then pin the proof.",
+    "intro": "Pin three proofs to accuse. Wrong pins on Senior sting; Junior slots glow faintly when correct.",
+    "tiers": {
+      "junior": {
+        "glow": true,
+        "needClears": false,
+        "warning": "You can accuse now, but clearing Iris, Theo, and Juliette first makes the case airtight."
+      },
+      "senior": {
+        "glow": false,
+        "needClears": true,
+        "clears": ["iris_cleared_partial", "theo_cleared", "juliette_cleared"],
+        "clearsMsg": "Senior Detective: clear Iris (tissue), Theo (watch), and Juliette (lawyer) before the final accuse."
+      },
+      "master": {
+        "glow": false,
+        "needClears": true,
+        "clears": ["iris_cleared_partial", "theo_cleared", "juliette_cleared", "badge_sorted"],
+        "clearsMsg": "Master: three clears plus sorted badge timeline required."
+      }
+    },
+    "slots": [
+      { "id": "tool", "label": "Tool proof", "correct": "proof_tungsten", "options": [
+        { "id": "proof_tungsten", "label": "Tungsten crescent + empty hook" },
+        { "id": "fake_dust", "label": "Glass dust on boots (weak)" },
+        { "id": "fake_shear", "label": "Shear tip theory" }
+      ]},
+      { "id": "time", "label": "Time proof", "correct": "proof_badge", "options": [
+        { "id": "proof_badge", "label": "00:17 studio badge + climate edit" },
+        { "id": "fake_iris", "label": "Iris 23:40 alone" },
+        { "id": "fake_theo", "label": "Theo dawn entry" }
+      ]},
+      { "id": "stash", "label": "Stash proof", "correct": "proof_kiln", "options": [
+        { "id": "proof_kiln", "label": "Orchid in hollow kiln brick" },
+        { "id": "fake_pawn", "label": "Theo's pawn slip" },
+        { "id": "fake_bid", "label": "Juliette's $80k bid alone" }
+      ]}
+    ],
+    "onSolve": {
+      "sets": ["accusation_ready", "case_solved"],
+      "notebook": "Accusation locked: Rowan Vale — tungsten tool, midnight badge, hollow kiln stash. Protective theft + panic framing.",
+      "monologue": "Board complete. Time to talk to Rowan — with receipts."
+    }
+  },
+  "act3_ending": {
+    "id": "act3_ending",
+    "name": "Case Closed",
+    "type": "auto",
+    "requires": ["case_solved", "rowan_confessed"],
+    "onSolve": {
+      "sets": ["ending_reached"],
+      "notebook": "Case closed. Orchid recovered. Rowan faces restitution. Juliette's sale scheme exposed. Celeste reforms gala contracts.",
+      "monologue": "Curtain. The Hollow keeps its orchid — and I keep my standards."
+    }
+  }
+}
