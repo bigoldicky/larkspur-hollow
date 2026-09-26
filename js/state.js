@@ -1,6 +1,6 @@
 /** Central game state + save/load */
 
-const SAVE_KEY = 'lh_save_v1';
+const SAVE_KEY = 'lh_save_0';
 const CHECKPOINT_KEY = 'lh_checkpoint';
 
 export function createState() {
@@ -138,7 +138,7 @@ export function tryCombine(state, itemsData, a, b) {
     addItem(state, 'uv_kit');
     return {
       result: 'uv_kit',
-      monologue: 'Tweezers + UV chalk = sample kit. Pedestal base, you\'re next.',
+      monologue: "Tweezers + UV chalk = sample kit. Pedestal base, you're next.",
       notebook: 'Combined tweezers and UV chalk into a UV sample kit.',
     };
   }
