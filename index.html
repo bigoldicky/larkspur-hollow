@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f1419" />
+  <title>Larkspur Hollow: The Glass Orchid</title>
+  <link rel="stylesheet" href="css/game.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="hud">
+      <span class="title-chip" id="room-title">Larkspur Hollow</span>
+      <span id="diff-badge">junior</span>
+      <span id="tod-badge" data-tod="day">day</span>
+      <button type="button" class="hud-btn" id="btn-notebook">Notebook</button>
+      <button type="button" class="hud-btn" id="btn-save">Save</button>
+    </header>
+
+    <div id="stage-wrap">
+      <div id="room-blurb"></div>
+      <div id="stage" role="application" aria-label="Game room"></div>
+      <div id="npc-dock"></div>
+    </div>
+
+    <div id="inv-bar" aria-label="Inventory"></div>
+  </div>
+
+  <div id="mono" class="hidden" role="status"></div>
+
+  <!-- Title -->
+  <div id="title-screen" class="screen">
+    <h1>Larkspur Hollow</h1>
+    <div class="subtitle">The Glass Orchid</div>
+    <p>
+      An original girl-detective point-and-click mystery. Explore eight locations,
+      interrogate six suspects, crack chained puzzles, and recover a missing sculpture —
+      no combat, all curiosity.
+    </p>
+    <p style="font-size:0.85rem">Full mystery · Acts I–III · Offline-friendly web prototype</p>
+    <div class="btn-row">
+      <div class="diff-card" data-start-diff="junior" role="button" tabindex="0">
+        <h3>Junior Detective</h3>
+        <p style="margin:0;font-size:0.85rem;color:var(--muted)">Full task list, puzzle hints, sparkles when ready. Accuse earlier with a warning.</p>
+      </div>
+      <div class="diff-card" data-start-diff="senior" role="button" tabindex="0">
+        <h3>Senior Detective</h3>
+        <p style="margin:0;font-size:0.85rem;color:var(--muted)">Lean tasks, subtler guidance. Clear three red herrings before accusing.</p>
+      </div>
+      <div class="diff-card" data-start-diff="master" role="button" tabindex="0">
+        <h3>Master Detective</h3>
+        <p style="margin:0;font-size:0.85rem;color:var(--muted)">Stretch: stricter gates, badge timeline required for the board.</p>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button type="button" class="secondary" id="btn-continue" disabled>Continue Save</button>
+    </div>
+  </div>
+
+  <!-- Notebook -->
+  <div id="notebook-overlay" class="panel-overlay hidden">
+    <div class="panel" role="dialog" aria-label="Notebook">
+      <header>
+        <h2>Field Notebook</h2>
+        <button type="button" class="close">Close</button>
+      </header>
+      <div id="notebook-body"></div>
+    </div>
+  </div>
+
+  <!-- Dialogue -->
+  <div id="dlg-overlay" class="panel-overlay hidden">
+    <div class="panel" role="dialog" aria-label="Dialogue">
+      <header>
+        <h2>Conversation</h2>
+        <button type="button" class="close">Close</button>
+      </header>
+      <div class="dlg-speaker">
+        <div class="dlg-portrait" id="dlg-portrait">🌿</div>
+        <div class="dlg-name" id="dlg-name">Name</div>
+      </div>
+      <div class="dlg-text" id="dlg-text"></div>
+      <div class="dlg-choices" id="dlg-choices"></div>
+    </div>
+  </div>
+
+  <!-- Puzzle -->
+  <div id="puzzle-overlay" class="panel-overlay hidden">
+    <div class="panel" role="dialog" aria-label="Puzzle">
+      <header>
+        <h2>Puzzle</h2>
+        <button type="button" class="close">Close</button>
+      </header>
+      <div id="puzzle-body"></div>
+    </div>
+  </div>
+
+  <!-- Act / Ending card -->
+  <div id="finale" class="screen hidden">
+    <h2>Act Complete</h2>
+    <div class="finale-body"></div>
+    <div class="btn-row">
+      <button type="button" id="btn-finale-close">Keep Exploring</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
