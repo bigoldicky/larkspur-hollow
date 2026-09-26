@@ -1,0 +1,10 @@
+{
+  "format": "ogg",
+  "characters": {
+    "mira": { "provider": "piper-or-elevenlabs", "voiceId": "TODO_mira", "gainDb": 0 },
+    "celeste": { "provider": "piper-or-elevenlabs", "voiceId": "TODO_celeste", "gainDb": 0 },
+    "rowan": { "provider": "piper-or-elevenlabs", "voiceId": "TODO_rowan", "gainDb": -1 },
+    "iris": { "provider": "piper-or-elevenlabs", "voiceId": "TODO_iris", "gainDb": 0 }
+  },
+  "note": "Drop rendered clips as assets/voices/{character}/{line_id}.ogg — see docs/ai-voice-workflow.md"
+}
